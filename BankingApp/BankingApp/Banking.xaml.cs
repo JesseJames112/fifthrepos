@@ -87,6 +87,7 @@ namespace BankingApp
             else
             // Handle insufficient fund
                 if (((fromRadioButtonChecked == "ChequeRadioButtonOn") && (amountTransfer + 2.0m > fromBalance)) ||
+                if (((fromRadioButtonChecked == "InvesmentRadioButtonOn") && (amountTransfer + 30.0m > fromBalance)) || ((fromRadioButtonChecked == "SavingRadioButtonOn") && (amountTransfer > fromBalance)))
                    ((fromRadioButtonChecked == "SavingRadioButtonOn") && (amountTransfer > fromBalance)))
                 
                 {
@@ -155,7 +156,7 @@ namespace BankingApp
                             break;
 
                         case "InvestmentRadioButtonOn&SavingsRadioButtonOn":  // from Investment to Saving
-                            fromBalance = fromBalance - amountTransfer;
+                            fromBalance = fromBalance - amountTransfer - 30.0m;
                             cInvestmentBalance = fromBalance;
                             fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
@@ -165,7 +166,7 @@ namespace BankingApp
                             break;
 
                         case "InvestmentRadioButtonOn&ChequeRadioButtonOn":  //from Investment to Cheque
-                            fromBalance = fromBalance - amountTransfer;
+                            fromBalance = fromBalance - amountTransfer - 30.0m;
                             cInvestmentBalance = fromBalance;
                             fromBalanceLabel.Content = cInvestmentBalance.ToString("C");
 
